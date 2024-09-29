@@ -2,7 +2,7 @@
 
 #### 一、安装步骤
 
-1. 打开网址：https://gitee.com/cbxgss/tju-rm-tutorial
+1. 打开网址：https://github.com/TJURM/tjurm2025-test2
 
 2. 点击右侧`克隆/下载`下载zip包
 
