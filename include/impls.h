@@ -1,7 +1,7 @@
 #ifndef TJURM_TUTORIAL_INCLUDE_IMPL_H_
 #define TJURM_TUTORIAL_INCLUDE_IMPL_H_
 
-#include <opencv4/opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <vector>
 
 // 练习 (1)

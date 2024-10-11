@@ -1,7 +1,7 @@
 #ifndef TJURM_TUTORIAL_INCLUDE_UTILS_H_
 #define TJURM_TUTORIAL_INCLUDE_UTILS_H_
 
-#include <opencv4/opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 
 #define FORMAT_BLUE(str)      "\033[34m" str "\033[0m"
 #define FORMAT_BLUE_BACK(str) "\033[44m" str "\033[0m"
