@@ -20,7 +20,7 @@
                "name": "Linux",
                "includePath": [
                    "${workspaceFolder}/**",
-                   "/usr/local/include/opencv4"
+                   "/usr/local/opencv4.5.4/include/opencv4"    //就是你安装opencv的目录
                ],
                "defines": [],
                "compilerPath": "/usr/bin/gcc",
