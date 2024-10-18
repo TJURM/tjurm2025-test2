@@ -30,6 +30,41 @@ std::unordered_map<int, cv::Rect> roi_color(const cv::Mat& input) {
      */
     std::unordered_map<int, cv::Rect> res;
     // IMPLEMENT YOUR CODE HERE
+    cv::Mat gray;
+    cv::cvtColor(input, gray, cv::COLOR_BGR2GRAY);
+    cv::Mat binary;
+    cv::threshold(gray, binary, 0, 255, cv::THRESH_BINARY_INV | cv::THRESH_OTSU);
+    
+    std::vector<std::vector<cv::Point>> contours;
+    cv::findContours(binary, contours, cv::RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+    cv::Rect rect0 = cv::boundingRect(contours[0]);
+    cv::Rect rect1 = cv::boundingRect(contours[1]);
+    cv::Rect rect2 = cv::boundingRect(contours[2]);
+
+    cv::Mat roi_image0 = input(rect0);
+    cv::Mat roi_image1 = input(rect1);
+    cv::Mat roi_image2 = input(rect2);
+
+    cv::Vec3b elem0 = roi_image0.at<cv::Vec3b>(0,0);
+    cv::Vec3b elem1 = roi_image1.at<cv::Vec3b>(0,0);
+    cv::Vec3b elem2 = roi_image2.at<cv::Vec3b>(0,0);
+
+    for(int i = 0; i<3; i++)
+    {
+        if(elem0[i]>std::max(elem1[i],elem2[i]))
+        {
+            res[i]= rect0;
+        }
+        else if(elem1[i]>elem2[i])
+        {
+            res[i]= rect1;
+        }
+        else
+        {
+            res[i]=rect2;
+        }
+    }
 
     return res;
 }
